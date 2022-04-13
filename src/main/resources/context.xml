@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:map id="xmlFactoryMap" map-class="java.util.HashMap" key-type="java.lang.String"
+              value-type="java.util.Map">
+        <entry key="xmlGroup" value-ref="xmlGroupMap"/>
+    </util:map>
+
+    <util:map id="xmlGroupMap" map-class="java.util.HashMap" key-type="java.lang.String"
+              value-type="test.autowiremap.service.MyServiceFactory">
+        <entry key="xmlFactory" value-ref="xmlServiceFactory"/>
+    </util:map>
+
+    <bean class="test.autowiremap.service.MyServiceFactory" name="xmlServiceFactory"/>
+
+</beans>
