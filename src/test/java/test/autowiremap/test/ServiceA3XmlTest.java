@@ -21,6 +21,7 @@ public class ServiceA3XmlTest extends AbstractTestNGSpringContextTests {
 
     @Test
     public void factoryGroupsA_fails() {
+        // Throws NullPointerException due to different data type
         MyServiceFactory myServiceFactory = factoryGroupsXml.get("xmlGroup").get("xmlFactory");
         System.out.println(myServiceFactory);
     }
