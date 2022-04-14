@@ -14,21 +14,21 @@ import java.util.Map;
 public class ServiceA3Test extends AbstractTestNGSpringContextTests {
     @Autowired
     @Qualifier("factoryGroupsA")
-    private Map<String, Map<String, MyServiceFactory>> factoryGroupsXml;
+    private Map<String, Map<String, MyServiceFactory>> factoryGroups;
     @Autowired
     @Qualifier("factoryGroupsA")
-    private Object factoryGroupsXmlObject;
+    private Object factoryGroupsObject;
 
     @Test
     public void factoryGroupsA_working() {
-        MyServiceFactory myServiceFactory = factoryGroupsXml.get("myA").get("myFactory");
+        MyServiceFactory myServiceFactory = factoryGroups.get("myA").get("myFactory");
         System.out.println(myServiceFactory);
     }
 
     @Test
     public void factoryGroupsA_working2() {
-        var factoryGroupsXmlObject = (Map<String, Map<String, MyServiceFactory>>) this.factoryGroupsXmlObject;
-        MyServiceFactory myServiceFactory = factoryGroupsXmlObject.get("myA").get("myFactory");
+        var factoryGroupsObject = (Map<String, Map<String, MyServiceFactory>>) this.factoryGroupsObject;
+        MyServiceFactory myServiceFactory = factoryGroupsObject.get("myA").get("myFactory");
         System.out.println(myServiceFactory);
     }
 }
